@@ -8,3 +8,5 @@ class Conta
 };
 
 $conta = new Conta();
+
+var_dump($conta);
