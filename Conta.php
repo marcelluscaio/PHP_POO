@@ -4,22 +4,24 @@ class Conta
 {
    private string $cpfTitular;
    private string $nomeTitular;
-   private float $saldo=0;
+   private float $saldo;
 
-   public function setCpfTitular(string $cpf) :void{
+   public function __construct(string $cpf, string $nome){
+      $this->saldo = 0;
       $this->cpfTitular = $cpf;
+      $this->nomeTitular = $nome;
    }
 
    public function getCpfTitular() :string{
       return $this->cpfTitular;
    }
 
-   public function setNome(string $nome) :void{
-      $this->nomeTitular = $nome;
-   }
-
    public function getNome() :string{
       return $this->nomeTitular;
+   }
+
+   public function getSaldo() :string{
+      return $this->saldo;
    }
 
    public function sacar(float $valor) :void{
@@ -45,9 +47,5 @@ class Conta
       }
       $this->sacar($valor);
       $conta->depositar($valor);
-   }
-
-   public function getSaldo() :string{
-      return $this->saldo;
    }
 };
