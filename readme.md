@@ -16,3 +16,9 @@ Utilizando private junto com getters e setters;
 Encapsulamento;
 
 Tell dont ask;
+
+Ao criar uma instância, o método mágico construtor (__construct) é executado
+Quando uma instância deixa de existir, seu método mágico destrutor (__destruct) é executado
+Podemos ter métodos privados em nossas classes, que nos ajudam a organizar o código
+Também podemos ter membros (atributos e métodos) da própria classe, e não de cada instância
+Membros da classe são chamados de membros estáticos

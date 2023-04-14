@@ -6,11 +6,25 @@ class Conta
    private string $nomeTitular;
    private float $saldo;
 
+   private static $numeroDeContas = 0;
+
    public function __construct(string $cpf, string $nome){
       $this->saldo = 0;
       $this->cpfTitular = $cpf;
+      $this->validaNome($nome);
       $this->nomeTitular = $nome;
+
+      self::$numeroDeContas++;
    }
+
+   private function validaNome(string $nome) :void{
+      if(strlen($nome) < 4){
+         echo "Nome precisa ter pelo menos 4 caracteres".PHP_EOL;
+         exit();
+      }
+   }
+
+   //php 8 permite criar dentro do construc public readonly string $nomeTitular e abrir mão dos getters
 
    public function getCpfTitular() :string{
       return $this->cpfTitular;
@@ -18,6 +32,10 @@ class Conta
 
    public function getNome() :string{
       return $this->nomeTitular;
+   }
+
+   public static function getNumeroContas() :int{
+      return self::$numeroDeContas;
    }
 
    public function getSaldo() :string{
